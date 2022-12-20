@@ -1,16 +1,26 @@
 import { Post} from './Post';
 import { Header } from './components/header';
-import './global.css'
+import './global.css';
+import styles from './App.module.css';
+
 function App() {
 
   return (
     <>
       <Header />
-      <Post 
-        author="Gabriel"
-        content="blablabla" 
-      />
-      
+
+      <div className={styles.wrapper}>
+        <aside>
+
+        </aside>
+
+        <main>
+          <Post 
+            author="Gabriel"
+            content="blablabla" 
+          />
+        </main>
+      </div>      
     </>
     
   )
