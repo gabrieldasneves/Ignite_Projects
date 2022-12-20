@@ -1,4 +1,13 @@
 .header{
-    background:#555;
-    height:80px
+    background:(--gray-800);
+    height:80px;
+    display: flex;
+    justify-content:center;
+    padding:1.25rem 0;
+    gap: 2px;
+}
+
+.header img{
+    height: 2rem;
+
 }
