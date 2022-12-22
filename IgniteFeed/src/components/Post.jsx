@@ -20,7 +20,7 @@ export function Post(){
                    <p>sit amet consectetur adipisicing elit. Velit iste tempora omnis dicta! Magnam necessitatibus pariatur
                      minus non ducimus, repudiandae praesentium nam. Nemo,
                      harum iure <a href="#"> voluptates blanditiis</a> doloremque molestiae</p> 
-                     <p> <a href="#">#repudiandae!</a> 
+                     <p> <a href="#">#repudiandae!</a> {" "}
                 </p>
             </div>
         </article>
