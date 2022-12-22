@@ -19,6 +19,16 @@ function App() {
             author="Gabriel"
             content="blablabla" 
           />
+
+          <Post 
+            author="Gabriel"
+            content="blablabla" 
+          />
+
+          <Post 
+            author="Gabriel"
+            content="blablabla" 
+          />
         </main>
       </div>      
     </>

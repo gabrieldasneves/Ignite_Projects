@@ -23,7 +23,17 @@ export function Post(){
                      <p> <a href="#">#repudiandae!</a> {" "}
                 </p>
             </div>
+
+            <form className={styles.commentForm}>
+                <strong>Deixe seu feedback</strong>
+                <textarea placeholder='Deixe seu comentário'></textarea>
+                <footer>
+                    <button type='submit'>Comentar</button>
+                </footer>
+            </form>
         </article>
+
+        
         
     )
 }
