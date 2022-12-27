@@ -1,29 +1,41 @@
-import { Avatar } from './avatar'
-import { Comment } from './Comment'
-import styles from './Post.module.css'
+import { Avatar } from './avatar';
+import { Comment } from './Comment';
+import styles from './Post.module.css';
+import {format, formatDistanceToNow} from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR'
+export function Post(props){
 
-export function Post(){
+    const publishedDateFormatted = format(props.publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
+        locale:ptBR,
+    });
+
+    const publishedDateRelativeToNow = formatDistanceToNow(props.publishedAt,{
+        locale:ptBR,
+        addSuffix:true,
+    })
+
     return(
         <article className={styles.post}>
             <header>
                 <div className={styles.author}>
-                    <Avatar  src="https://github.com/MateusRodrigues95.png" alt="" />
+                    <Avatar  src={props.author.avatarUrl} alt="" />
                     <div className={styles.authorInfo}>
-                        <strong>Gabriel das Neves</strong>
-                        <span>Software Eng.</span>
+                        <strong>{props.author.name}</strong>
+                        <span>{props.author.role}</span>
                     </div>
                 </div>
 
-                <time title="21 de Dezembro às 18:32 " dateTime="2022-12-21">Publicado há </time>
+                <time title={publishedDateFormatted} dateTime={props.publishedAt.toISOString()}>{publishedDateRelativeToNow}</time>
             </header>
 
             <div className={styles.content}>
-                <p>Lorem ipsum dolor  </p>
-                   <p>sit amet consectetur adipisicing elit. Velit iste tempora omnis dicta! Magnam necessitatibus pariatur
-                     minus non ducimus, repudiandae praesentium nam. Nemo,
-                     harum iure <a href="#"> voluptates blanditiis</a> doloremque molestiae</p> 
-                     <p> <a href="#">#repudiandae!</a> {" "}
-                </p>
+                {props.content.map(line => {
+                    if(line.type === "paragraph"){
+                        return <p>{line.content}</p>
+                    }else if(line.type === "link"){
+                        return <p> <a href="#">{line.content}</a> </p>
+                    }
+                })}
             </div>
 
             <form className={styles.commentForm}>

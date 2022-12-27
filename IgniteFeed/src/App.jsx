@@ -5,7 +5,72 @@ import './global.css';
 import styles from './App.module.css';
 
 
-function App() {
+const posts = [
+  {
+    id:1,
+    author:{
+      avatarUrl:"https://github.com/MateusRodrigues95.png",
+      name:"Mateus Rodrigues",
+      role:"CTO"
+    },
+    content: [{
+        type: 'paragraph',
+        content:'Lorem ipsum dolor '
+      },
+      {
+        type: 'paragraph',
+        content: 'sit amet consectetur adipisicing elit. Velit iste tempora omnis dicta! Magnam necessitatibus pariatur'
+      },
+      {
+        type: 'paragraph',
+        content:'sit amet consectetur adipisicing elit. Velit iste tempora omnis dicta! Magnam necessitatibus pariatur'
+      },
+      {
+        type: 'paragraph',
+        content:'minus non ducimus, repudiandae praesentium nam. Nemo,harum iure'
+      },
+      {
+        type: 'link',
+        content:'#repudiandae!'
+      }    
+    ],
+    publishedAt: new Date('2022-05-03 20:00:00')
+
+  },
+  {
+    id:2,
+    author:{
+      avatarUrl:"https://github.com/gabrieldasneves.png",
+      name:"Gabriel das Neves",
+      role:"Chef"
+    },
+    content: [{
+        type: 'paragraph',
+        content:'Lorem ipsum dolor '
+      },
+      {
+        type: 'paragraph',
+        content: 'sit amet consectetur adipisicing elit. Velit iste tempora omnis dicta! Magnam necessitatibus pariatur'
+      },
+      {
+        type: 'paragraph',
+        content:'sit amet consectetur adipisicing elit. Velit iste tempora omnis dicta! Magnam necessitatibus pariatur'
+      },
+      {
+        type: 'paragraph',
+        content:'minus non ducimus, repudiandae praesentium nam. Nemo,harum iure'
+      },
+      {
+        type: 'link',
+        content:'#repudiandae!'
+      }    
+    ],
+    publishedAt: new Date('2022-05-10 20:00:00')
+
+  }
+];
+
+export default function App() {
 
   return (
     <>
@@ -15,20 +80,14 @@ function App() {
         <Sidebar />
 
         <main>
-          <Post 
-            author="Gabriel"
-            content="blablabla" 
-          />
-
-          <Post 
-            author="Gabriel"
-            content="blablabla" 
-          />
-
-          <Post 
-            author="Gabriel"
-            content="blablabla" 
-          />
+          {posts.map(post => {
+            return (
+            <Post
+              author={post.author}
+              content={post.content}
+              publishedAt={post.publishedAt}  />
+          )
+          })}
         </main>
       </div>      
     </>
@@ -36,4 +95,4 @@ function App() {
   )
 }
 
-export default App
+
