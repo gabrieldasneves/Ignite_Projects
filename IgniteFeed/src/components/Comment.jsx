@@ -1,10 +1,11 @@
 import { ThumbsUp, Trash } from "phosphor-react"
+import { Avatar } from "./avatar"
 import styles from "./Comment.module.css"
 
 export function Comment(){
     return (
         <div className={styles.Comment}>
-            <img src="https://github.com/gabrieldasneves.png" alt="" />
+            <Avatar hasBorder={false} src="https://github.com/gabrieldasneves.png" alt="" />
 
             <div className={styles.commentBox}>
                 <div className={styles.commentContent}>
